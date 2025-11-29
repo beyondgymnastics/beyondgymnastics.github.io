@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond Gymnastics | Mindset Coaching for Young Gymnasts</title>
+    <meta name="description" content="Online mental coaching for gymnasts ages 6-17. Overcome fear, build confidence, and rediscover your love for gymnastics with someone who's been there.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95), rgba(118, 75, 162, 0.95)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23e0d5f0" width="1200" height="600"/></svg>');
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ff6b9d;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.6);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #667eea;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #764ba2;
+        }
+
+        /* Story Section */
+        .story {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .story p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            border-left: 4px solid #ff6b9d;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h4 {
+            color: #667eea;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Pricing Section */
+        .pricing-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.03);
+        }
+
+        .pricing-card.featured {
+            border: 3px solid #ff6b9d;
+            box-shadow: 0 8px 30px rgba(255, 107, 157, 0.3);
+        }
+
+        .pricing-card .badge {
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: #ff6b9d;
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .pricing-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: #764ba2;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .price-detail {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+
+        .pricing-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .pricing-card li:before {
+            content: "✓";
+            color: #ff6b9d;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            color: #667eea;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #f8f9ff;
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 1.5rem;
+            color: #ff6b9d;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            display: none;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "−";
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 15px;
+        }
+
+        .contact-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: opacity 0.3s;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Beyond Gymnastics</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">What I Offer</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Helping Gymnasts Feel Strong Inside & Out</h1>
+        <p class="subtitle">Overcome Fear. Regain Motivation. Develop Inner & Outer Confidence.</p>
+        <a href="#contact" class="cta-button">Schedule Your Session</a>
+    </section>
+
+    <div class="container">
+        <section id="about" class="story">
+            <h2>My Story</h2>
+            <p>I'm Skye Energy Gibbs, and I know what it's like to be a gymnast under pressure. I started gymnastics at age 6 and trained hard every day. I trained at Sugar Land Gymnastics and later World Champions Centre under Coach Cecile & Coach Laurent (Simone Biles' coaches), competing through Level 8 and training up to Level 9.</p>
+            
+            <p>Gymnastics was mentally and emotionally brutal. I was pushed before I was ready, faced fear of skills that kept me up at night, dealt with injuries, and carried extreme pressure from coaches and competitions. For years, my identity was completely wrapped up in gymnastics. I felt like I was nothing outside of it.</p>
+            
+            <p><strong>The truth is: a gymnast can have all the talent in the world, but without a safe outlet or support, her potential can fade — and her love for the sport can disappear.</strong></p>
+            
+            <p>Sometimes you just need someone outside the gym who's been there and done that. That's why I'm here — to be that person for your gymnast.</p>
+        </section>
+
+        <section id="services">
+            <h2>What I Offer</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h4>🧠 Work Through Fear & Mental Blocks</h4>
+                    <p>Learn techniques to overcome skill fear, visualization strategies, and ways to build mental resilience when facing challenging skills.</p>
+                </div>
+                <div class="service-card">
+                    <h4>💬 A Safe Space to Vent</h4>
+                    <p>Talk openly about anything gymnastics-related with someone who truly gets it — no judgment, just understanding and support.</p>
+                </div>
+                <div class="service-card">
+                    <h4>💪 Manage Pressure</h4>
+                    <p>Navigate the demands from coaches, competitions, and yourself. Develop healthy coping strategies and boundary-setting skills.</p>
+                </div>
+                <div class="service-card">
+                    <h4>❤️ Rebuild Your Love for Gymnastics</h4>
+                    <p>Rediscover the joy and passion that brought you to gymnastics in the first place. Find balance between dedication and burnout.</p>
+                </div>
+                <div class="service-card">
+                    <h4>🎯 Reconnect with Your "Why"</h4>
+                    <p>Clarify your personal goals and motivations beyond scores and placements. Build intrinsic motivation that sustains you.</p>
+                </div>
+                <div class="service-card">
+                    <h4>✨ Build True Confidence</h4>
+                    <p>Develop confidence in your skills, your body, and yourself. Learn to see your worth far beyond gymnastics.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing">
+            <h2>Pricing & Packages</h2>
+            <div class="pricing-container">
+                <div class="pricing-card">
+                    <h3>Free Consultation</h3>
+                    <div class="price">$0</div>
+                    <div class="price-detail">15-minute parent call</div>
+                    <ul>
+                        <li>Discuss your gymnast's challenges</li>
+                        <li>Share your goals for coaching</li>
+                        <li>Learn about my approach</li>
+                        <li>Commitment to first session required</li>
+                    </ul>
+                    <a href="#contact" class="cta-button" style="display: inline-block; margin-top: 1rem; padding: 0.75rem 1.5rem; font-size: 1rem;">Book Consult</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Single Session</h3>
+                    <div class="price">$35</div>
+                    <div class="price-detail">60 minutes</div>
+                    <ul>
+                        <li>One-on-one Google Meet session</li>
+                        <li>Focused support & guidance</li>
+                        <li>Flexible scheduling</li>
+                        <li>Perfect for trying coaching</li>
+                    </ul>
+                    <a href="#contact" class="cta-button" style="display: inline-block; margin-top: 1rem; padding: 0.75rem 1.5rem; font-size: 1rem;">Get Started</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Extended Session</h3>
+                    <div class="price">$50</div>
+                    <div class="price-detail">90 minutes</div>
+                    <ul>
+                        <li>Deeper dive into challenges</li>
+                        <li>More time for exercises & techniques</li>
+                        <li>Visualization & confidence building</li>
+                        <li>Great for complex issues</li>
+                    </ul>
+                    <a href="#contact" class="cta-button" style="display: inline-block; margin-top: 1rem; padding: 0.75rem 1.5rem; font-size: 1rem;">Book Now</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="badge">BEST VALUE</div>
+                    <h3>Starter Package</h3>
+                    <div class="price">$130</div>
+                    <div class="price-detail">4 sessions (Save $10)</div>
+                    <ul>
+                        <li>Four 60-minute sessions</li>
+                        <li>Build consistency & momentum</li>
+                        <li>Track progress over time</li>
+                        <li>Great for establishing new habits</li>
+                    </ul>
+                    <a href="#contact" class="cta-button" style="display: inline-block; margin-top: 1rem; padding: 0.75rem 1.5rem; font-size: 1rem;">Choose Package</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="badge">POPULAR</div>
+                    <h3>Commitment Package</h3>
+                    <div class="price">$250</div>
+                    <div class="price-detail">8 sessions (Save $30)</div>
+                    <ul>
+                        <li>Eight 60-minute sessions</li>
+                        <li>Comprehensive mental training</li>
+                        <li>Deep transformation & growth</li>
+                        <li>Best for lasting change</li>
+                    </ul>
+                    <a href="#contact" class="cta-button" style="display: inline-block; margin-top: 1rem; padding: 0.75rem 1.5rem; font-size: 1rem;">Start Journey</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">How do I know if my gymnast needs this?</div>
+                    <div class="faq-answer">
+                        If your gymnast is experiencing fear of skills, loss of motivation, anxiety about competitions, pressure from coaches, or seems to be losing their love for the sport — coaching can help. Even gymnasts who seem "fine" benefit from having a safe space to process the mental and emotional demands of elite training.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What happens in a typical session?</div>
+                    <div class="faq-answer">
+                        Sessions are personalized to your gymnast's needs. We might work on visualization techniques for scary skills, process feelings about coaching or competition pressure, practice confidence-building exercises, or simply create a space where your gymnast can vent and be heard. Every session is judgment-free and focused on what matters most to them.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Do you work with parents too?</div>
+                    <div class="faq-answer">
+                        Yes! The free 15-minute consultation is specifically for parents to discuss their gymnast's challenges and goals. I can also provide guidance to parents on how to best support their gymnast outside of our sessions. However, the coaching sessions themselves are one-on-one with the gymnast to create a safe, confidential space.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What ages do you work with?</div>
+                    <div class="faq-answer">
+                        I work with gymnasts ages 6-17. My approach adapts to each age group — younger gymnasts might focus more on building confidence and managing fear, while older athletes often work on deeper identity issues, burnout prevention, and preparing for life beyond gymnastics.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How quickly will we see results?</div>
+                    <div class="faq-answer">
+                        Every gymnast is different. Some see immediate relief after just one session of being heard and validated. Others need several sessions to work through deeper mental blocks or rebuild motivation. Consistency is key — gymnasts who commit to regular sessions (weekly or bi-weekly) typically see the most significant and lasting changes.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How do sessions work logistically?</div>
+                    <div class="faq-answer">
+                        All sessions are conducted via Google Meet, so your gymnast can connect from anywhere with an internet connection. Sessions are scheduled at times that work for your family's busy gymnastics schedule. Flexible scheduling available.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Are you a licensed therapist?</div>
+                    <div class="faq-answer">
+                        I am not a licensed therapist — I'm a former elite gymnast who understands the unique mental and emotional challenges of the sport firsthand. I provide mentorship, mindset coaching, and a safe space for gymnasts to process their experiences. If your gymnast is dealing with severe anxiety, depression, or trauma, I recommend working with a licensed mental health professional in addition to or instead of coaching.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What if my gymnast is shy or hesitant?</div>
+                    <div class="faq-answer">
+                        That's completely normal! Many gymnasts are nervous about opening up at first. I create a comfortable, judgment-free environment where they can share at their own pace. Sometimes just knowing someone "gets it" because they've lived it makes all the difference. The free consultation also helps ease any nervousness.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section id="contact" class="contact-section">
+        <h2>Ready to Get Started?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">Your gymnast doesn't have to face the mental challenges alone. Let's work together to help them feel strong inside and out.</p>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <strong>📧 Email</strong>
+                <a href="mailto:info.beyondgym@gmail.com">info.beyondgym@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <strong>📱 Phone</strong>
+                <a href="tel:346-813-6085">346-813-6085</a>
+            </div>
+        </div>
+        
+        <p style="margin-top: 2rem; font-size: 0.95rem; opacity: 0.9;">Booking form coming soon! For now, reach out via email or phone to schedule your free consultation.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Beyond Gymnastics | Mindset Coaching for Young Gymnasts</p>
+        <p>Empowering gymnasts ages 6-17 to overcome fear, build confidence, and rediscover their love for the sport.</p>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const wasActive = faqItem.classList.contains('active');
+                
+                // Close all FAQs
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open clicked FAQ if it wasn't active
+                if (!wasActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
