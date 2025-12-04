@@ -6,455 +6,67 @@
     <title>SkyeRise | Mental Coaching & Mentoring for Young Gymnasts</title>
     <meta name="description" content="Online mental coaching and mentoring for gymnasts ages 6-17. Overcome fear, build confidence, and rediscover your love for gymnastics with someone who's been there.">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * {margin:0; padding:0; box-sizing:border-box;}
+        body {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height:1.6; color:#333; background:#fafafa;}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #fafafa;
-        }
+        header {background:#667eea; color:white; padding:1rem 0; position:sticky; top:0; z-index:100; box-shadow:0 2px 10px rgba(0,0,0,0.1);}
+        nav {max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding:0 2rem;}
+        .logo {font-size:1.8rem; font-weight:bold;}
+        .tagline {font-size:0.9rem; opacity:0.95;}
+        .nav-links {display:flex; gap:2rem; list-style:none;}
+        .nav-links a {color:white; text-decoration:none; font-weight:500; transition:opacity 0.3s;}
+        .nav-links a:hover {opacity:0.8;}
 
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+        .hero {background:linear-gradient(135deg, rgba(102,126,234,0.85), rgba(118,75,162,0.85)); color:white; text-align:center; padding:6rem 2rem;}
+        .hero h1 {font-size:3rem; margin-bottom:1rem; text-shadow:2px 2px 4px rgba(0,0,0,0.2);}
+        .hero .subtitle {font-size:1.5rem; margin-bottom:0.5rem; opacity:0.95;}
+        .hero .subtext {font-size:1.1rem; margin-bottom:2rem; font-style:italic; opacity:0.9;}
+        .cta-button {display:inline-block; background:#ff6b9d; color:white; padding:1rem 2.5rem; border-radius:50px; text-decoration:none; font-size:1.1rem; font-weight:bold; transition:transform 0.3s, box-shadow 0.3s; box-shadow:0 4px 15px rgba(255,107,157,0.4);}
+        .cta-button:hover {transform:translateY(-3px); box-shadow:0 6px 20px rgba(255,107,157,0.6);}
 
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
+        .container {max-width:1200px; margin:0 auto; padding:4rem 2rem;}
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
+        section {margin-bottom:4rem;}
+        h2 {font-size:2.5rem; margin-bottom:2rem; color:#667eea; text-align:center;}
+        h3 {font-size:1.8rem; margin-bottom:1rem; color:#764ba2;}
 
-        .tagline {
-            font-size: 0.9rem;
-            opacity: 0.95;
-            margin-top: 0.25rem;
-        }
+        .story {background:white; padding:3rem; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.08);}
+        .story p {font-size:1.1rem; margin-bottom:1rem; line-height:1.8;}
+        .story-header {display:flex; gap:3rem; align-items:center; margin-bottom:2rem; flex-wrap:wrap;}
+        .headshot {width:200px; height:200px; border-radius:50%; object-fit:cover; border:5px solid #667eea; box-shadow:0 5px 20px rgba(102,126,234,0.3);}
+        .story-intro {flex:1; min-width:300px;}
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
+        .credentials-section {background:#f8f9ff; padding:2rem; border-radius:10px; margin:2rem 0; display:flex; gap:2rem; align-items:center; flex-wrap:wrap;}
+        .credentials-photos {display:flex; gap:1rem; flex-wrap:wrap;}
+        .gym-photo {width:180px; height:240px; border-radius:10px; object-fit:cover; box-shadow:0 3px 15px rgba(0,0,0,0.2);}
+        .credentials-text {flex:1; min-width:250px;}
+        .credentials-text h3 {color:#667eea; margin-bottom:0.5rem; font-size:1.3rem;}
+        .credentials-text p {color:#666; font-size:0.95rem; line-height:1.6;}
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: opacity 0.3s;
-            font-weight: 500;
-        }
+        .services-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; margin-top:2rem;}
+        .service-card {background:white; padding:2rem; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.08); transition:transform 0.3s; border-left:4px solid #ff6b9d;}
+        .service-card:hover {transform:translateY(-5px);}
+        .service-card h4 {color:#667eea; font-size:1.3rem; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem;}
+        .icon {font-size:1.5rem;}
 
-        .nav-links a:hover {
-            opacity: 0.8;
-        }
+        .faq-container {max-width:800px; margin:2rem auto;}
+        .faq-item {background:white; margin-bottom:1rem; border-radius:10px; box-shadow:0 3px 10px rgba(0,0,0,0.08); overflow:hidden;}
+        .faq-question {padding:1.5rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:bold; color:#667eea; transition:background 0.3s;}
+        .faq-question:hover {background:#f8f9ff;}
+        .faq-question::after {content:"+"; font-size:1.5rem; color:#ff6b9d;}
+        .faq-answer {padding:0 1.5rem 1.5rem; display:none; line-height:1.8;}
+        .faq-item.active .faq-answer {display:block;}
+        .faq-item.active .faq-question::after {content:"−";}
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95), rgba(118, 75, 162, 0.95)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23e0d5f0" width="1200" height="600"/></svg>');
-            color: white;
-            text-align: center;
-            padding: 6rem 2rem;
-        }
+        .contact-section {background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:white; padding:4rem 2rem; text-align:center; border-radius:15px;}
+        .contact-info {display:flex; justify-content:center; gap:3rem; flex-wrap:wrap;}
+        .contact-item {display:flex; flex-direction:column; align-items:center; gap:0.5rem;}
+        .contact-item a {color:white; text-decoration:none; font-size:1.1rem; transition:opacity 0.3s;}
+        .contact-item a:hover {opacity:0.8;}
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
+        footer {background:#333; color:white; text-align:center; padding:2rem;}
 
-        .hero .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            opacity: 0.95;
-        }
-
-        .hero .subtext {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            font-style: italic;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: #ff6b9d;
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.6);
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        /* Section Styles */
-        section {
-            margin-bottom: 4rem;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #667eea;
-            text-align: center;
-        }
-
-        h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #764ba2;
-        }
-
-        /* Story Section */
-        .story {
-            background: white;
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
-
-        .story p {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
-
-        .story-header {
-            display: flex;
-            gap: 3rem;
-            align-items: center;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .headshot {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: contain; /* Fixed cropping issue */
-            border: 5px solid #667eea;
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
-        }
-
-        .story-intro {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .credentials-section {
-            background: #f8f9ff;
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .credentials-photos {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .gym-photo, .simone-photo {
-            width: 180px;
-            height: 240px;
-            border-radius: 10px;
-            object-fit: contain; /* Fixed cropping issue */
-            box-shadow: 0 3px 15px rgba(0,0,0,0.2);
-        }
-
-        .credentials-text {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .credentials-text h3 {
-            color: #667eea;
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-        }
-
-        .credentials-text p {
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
-            border-left: 4px solid #ff6b9d;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .service-card h4 {
-            color: #667eea;
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .icon {
-            font-size: 1.5rem;
-        }
-
-        /* Pricing Section */
-        .pricing-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .pricing-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            text-align: center;
-            transition: transform 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pricing-card:hover {
-            transform: scale(1.03);
-        }
-
-        .pricing-card.featured {
-            border: 3px solid #ff6b9d;
-            box-shadow: 0 8px 30px rgba(255, 107, 157, 0.3);
-        }
-
-        .pricing-card .badge {
-            position: absolute;
-            top: 15px;
-            right: -30px;
-            background: #ff6b9d;
-            color: white;
-            padding: 5px 40px;
-            transform: rotate(45deg);
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        .pricing-card h3 {
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
-
-        .price {
-            font-size: 2.5rem;
-            color: #764ba2;
-            font-weight: bold;
-            margin: 1rem 0;
-        }
-
-        .price-detail {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .pricing-card ul {
-            list-style: none;
-            margin: 1.5rem 0;
-            text-align: left;
-        }
-
-        .pricing-card li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .pricing-card li:before {
-            content: "✓";
-            color: #ff6b9d;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        .save-badge {
-            background: #ff6b9d;
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            display: inline-block;
-            margin-top: 0.5rem;
-        }
-
-        /* FAQ Section */
-        .faq-container {
-            max-width: 800px;
-            margin: 2rem auto;
-        }
-
-        .faq-item {
-            background: white;
-            margin-bottom: 1rem;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-            overflow: hidden;
-        }
-
-        .faq-question {
-            padding: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: bold;
-            color: #667eea;
-            transition: background 0.3s;
-        }
-
-        .faq-question:hover {
-            background: #f8f9ff;
-        }
-
-        .faq-question::after {
-            content: "+";
-            font-size: 1.5rem;
-            color: #ff6b9d;
-        }
-
-        .faq-answer {
-            padding: 0 1.5rem 1.5rem;
-            display: none;
-            line-height: 1.8;
-        }
-
-        .faq-item.active .faq-answer {
-            display: block;
-        }
-
-        .faq-item.active .faq-question::after {
-            content: "−";
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-            border-radius: 15px;
-        }
-
-        .contact-section h2 {
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .contact-item a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: opacity 0.3s;
-        }
-
-        .contact-item a:hover {
-            opacity: 0.8;
-        }
-
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .nav-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            h2 {
-                font-size: 2rem;
-            }
-        }
+        @media(max-width:768px){.hero h1{font-size:2rem}.hero .subtitle{font-size:1.2rem}.nav-links{flex-direction:column; gap:1rem}h2{font-size:2rem}}
     </style>
 </head>
 <body>
@@ -467,7 +79,6 @@
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">What I Offer</a></li>
-                <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -484,46 +95,22 @@
     <div class="container">
         <section id="about" class="story">
             <h2>My Story</h2>
-            
             <div class="story-header">
                 <img src="images/headshot.jpg" alt="Skye Headshot" class="headshot">
                 <div class="story-intro">
-                    <p>Hi there! I'm Skye Energy Gibbs, and I spent 8 years as a competitive gymnast. I trained at Sugar Land Gymnastics, then moved to World Champions Centre under Coach Cecile and Coach Laurent (Simone Biles' coaches), competing through Level 8 and training up to Level 9. I know what it takes to succeed in this sport, and I also know what it costs.</p>
+                    <p>Hi! I'm Skye Energy Gibbs. I spent 8 years as a competitive gymnast, training at Sugar Land Gymnastics and World Champions Centre under top coaches including Simone Biles' coaches. I reached Level 8, training up to Level 9.</p>
                 </div>
             </div>
-
-            <p>I walked away from competitive gymnastics before completing Level 9. It wasn't about talent or work ethic. It was about not having the mental support I needed, and not even knowing how to ask for it...</p>
-            <!-- Keep the rest of your story paragraphs as-is -->
+            <p>I walked away from competitive gymnastics before completing Level 9—not due to talent or effort, but because I lacked mental support. I want to help young gymnasts avoid the same struggle and truly enjoy the sport.</p>
         </section>
 
         <section id="services">
             <h2>What I Offer 🧠🤸‍♀️</h2>
-            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem; color: #666;">One-on-one mental coaching and mentoring sessions via Google Meet</p>
             <div class="services-grid">
-                <div class="service-card">
-                    <h4><span class="icon">🧠</span> Work Through Fear & Mental Blocks</h4>
-                    <p>Learn techniques to overcome skill fear, visualization strategies, and ways to build mental resilience when facing challenging skills.</p>
-                </div>
-                <div class="service-card">
-                    <h4><span class="icon">💬</span> A Safe Space to Vent</h4>
-                    <p>Talk openly about anything gymnastics-related with someone who truly gets it. No judgment, just understanding and support.</p>
-                </div>
-                <div class="service-card">
-                    <h4><span class="icon">💪</span> Manage Pressure</h4>
-                    <p>Navigate the demands from coaches, competitions, and yourself. Develop healthy coping strategies for the mental challenges of elite training.</p>
-                </div>
-                <div class="service-card">
-                    <h4><span class="icon">❤️</span> Rebuild Your Love for Gymnastics</h4>
-                    <p>Rediscover the joy and passion that brought you to gymnastics in the first place. Find balance between dedication and burnout.</p>
-                </div>
-                <div class="service-card">
-                    <h4><span class="icon">🎯</span> Reconnect with Your "Why"</h4>
-                    <p>Clarify your personal goals and motivations beyond scores and placements. Build intrinsic motivation that sustains you.</p>
-                </div>
-                <div class="service-card">
-                    <h4><span class="icon">✨</span> Build True Confidence</h4>
-                    <p>Develop confidence in your skills, your body, and yourself. Learn to see your worth far beyond gymnastics.</p>
-                </div>
+                <div class="service-card"><h4><span class="icon">🧠</span> Work Through Fear & Mental Blocks</h4><p>Learn techniques to overcome skill fear, visualization strategies, and build mental resilience.</p></div>
+                <div class="service-card"><h4><span class="icon">💬</span> A Safe Space to Vent</h4><p>Talk openly about anything gymnastics-related with someone who truly gets it.</p></div>
+                <div class="service-card"><h4><span class="icon">💪</span> Manage Pressure</h4><p>Develop healthy coping strategies for the mental challenges of elite training.</p></div>
+                <div class="service-card"><h4><span class="icon">❤️</span> Rebuild Your Love for Gymnastics</h4><p>Rediscover the joy and passion that brought you to gymnastics in the first place.</p></div>
             </div>
 
             <div class="credentials-section">
@@ -533,18 +120,47 @@
                 </div>
                 <div class="credentials-text">
                     <h3>My Training Journey</h3>
-                    <p>Trained at Sugar Land Gymnastics and World Champions Centre, coached by some of the best in the sport...</p>
+                    <p>Trained under top coaches, competing at Level 8 and beyond. I understand both the thrill and challenges of gymnastics from the inside out.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Keep Pricing, FAQ, Contact, Footer sections unchanged -->
+        <section id="faq">
+            <h2>FAQ</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">What age group do you coach?</div>
+                    <div class="faq-answer">I work with gymnasts aged 6-17, tailoring sessions to their mental and emotional needs.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How do sessions work?</div>
+                    <div class="faq-answer">Sessions are one-on-one via Google Meet. We focus on mental skills, confidence, and personal goals.</div>
+                </div>
+            </div>
+        </section>
 
+        <section id="contact" class="contact-section">
+            <h2>Contact Me</h2>
+            <p>Click the button below to copy an email template for reaching out:</p>
+            <button onclick="copyEmailTemplate()" class="cta-button">Copy Email Template</button>
+        </section>
     </div>
 
+    <footer>
+        &copy; 2025 SkyeRise. All Rights Reserved.
+    </footer>
+
     <script>
-        function copyEmailTemplate() {
-            const template = `Subject: Inquiry about SkyeRise Mentoring
+        // FAQ toggle
+        document.querySelectorAll('.faq-question').forEach(item=>{
+            item.addEventListener('click', ()=>{
+                item.parentElement.classList.toggle('active');
+            });
+        });
+
+        // Copy email template
+        function copyEmailTemplate(){
+            const template=`Subject: Inquiry about SkyeRise Mentoring
 
 Hi Skye,
 
@@ -557,18 +173,10 @@ Specific concerns or goals:
 
 Thank you,
 [Your Name]`;
-
-            navigator.clipboard.writeText(template).then(() => {
+            navigator.clipboard.writeText(template).then(()=>{
                 alert("Email template copied to clipboard!");
             });
         }
-
-        document.querySelectorAll('.faq-question').forEach(item => {
-            item.addEventListener('click', () => {
-                const parent = item.parentElement;
-                parent.classList.toggle('active');
-            });
-        });
     </script>
 </body>
 </html>
